@@ -26,7 +26,6 @@
     pkgs.cmake
     pkgs.coreutils
     pkgs.fortune
-    pkgs.gcc
     pkgs.gnused
     pkgs.htop
     pkgs.jq
