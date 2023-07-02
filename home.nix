@@ -27,6 +27,7 @@
     pkgs.coreutils
     pkgs.fortune
     pkgs.gnused
+    pkgs.gron
     pkgs.htop
     pkgs.jq
     pkgs.libiconv
