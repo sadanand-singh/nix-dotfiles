@@ -43,6 +43,23 @@
     enable = true;
     autocd = true;
     enableAutosuggestions = true;
+    enableCompletion = true;
+    history = {
+      ignoreDups = true;
+      save = 1000000;
+      size = 1000000;
+    };
+    plugins = [
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-syntax-highlighting";
+          rev = "0.6.0";
+          sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
+        };
+      }
+    ];
     initExtra = builtins.readFile ./zshrc;
     envExtra = builtins.readFile ./zshenv;
   };
