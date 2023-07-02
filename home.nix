@@ -41,6 +41,11 @@
     envExtra = builtins.readFile ./zshenv;
   };
 
+  programs.lsd = {
+    enable = true;
+    enableAliases = true;
+  };
+
   programs.git = {
     enable = true;
     userName = "Sadanand Singh";
