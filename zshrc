@@ -1,19 +1,19 @@
 # This is just an example that you should delete. It does nothing useful.
-z4h load   supercrabtree/k
-z4h load   esc/conda-zsh-completion
-z4h load   ohmyzsh/ohmyzsh/plugins/extract
-z4h load   ohmyzsh/ohmyzsh/plugins/macos
-z4h load   ohmyzsh/ohmyzsh/plugins/universalarchive
-z4h load   lukechilds/zsh-nvm
+# z4h load   supercrabtree/k
+# z4h load   esc/conda-zsh-completion
+# z4h load   ohmyzsh/ohmyzsh/plugins/extract
+# z4h load   ohmyzsh/ohmyzsh/plugins/macos
+# z4h load   ohmyzsh/ohmyzsh/plugins/universalarchive
+# z4h load   lukechilds/zsh-nvm
 
-# Define key bindings.
-z4h bindkey undo Ctrl+/  # undo the last command line change
-z4h bindkey redo Alt+/   # redo the last undone command line change
+# # Define key bindings.
+# z4h bindkey undo Ctrl+/  # undo the last command line change
+# z4h bindkey redo Alt+/   # redo the last undone command line change
 
-z4h bindkey z4h-cd-back    Shift+Left   # cd into the previous directory
-z4h bindkey z4h-cd-forward Shift+Right  # cd into the next directory
-z4h bindkey z4h-cd-up      Shift+Up     # cd into the parent directory
-z4h bindkey z4h-cd-down    Shift+Down   # cd into a child directory
+# z4h bindkey z4h-cd-back    Shift+Left   # cd into the previous directory
+# z4h bindkey z4h-cd-forward Shift+Right  # cd into the next directory
+# z4h bindkey z4h-cd-up      Shift+Up     # cd into the parent directory
+# z4h bindkey z4h-cd-down    Shift+Down   # cd into a child directory
 
 bindkey "^A"      beginning-of-line     "^E"      end-of-line
 bindkey "^?"      backward-delete-char  "^H"      backward-delete-char
@@ -30,9 +30,6 @@ autoload -Uz zmv
 # Define functions and completions.
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
-
-# Define named directories: ~w <=> Windows home directory on WSL.
-[[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
 # Define aliases.
 alias tree='tree -a -I .git'
