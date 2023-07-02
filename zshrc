@@ -31,6 +31,8 @@ autoload -Uz zmv
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
 
+source ~/.p10k.zsh
+
 # Define aliases.
 alias tree='tree -a -I .git'
 alias vi=nvim
