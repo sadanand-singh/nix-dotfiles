@@ -66,5 +66,5 @@
 
   home.activation.installExtensions =
     lib.hm.dag.entryAfter [ "writeBoundary" ]
-      (lib.optionalString config.isDarwin (builtins.concatStringsSep "\n" (map (e: "${config.programs.vscode.package}/bin/code --install-extension ${e} --force") extensions)));
+      (lib.optionalString true (builtins.concatStringsSep "\n" (map (e: "${config.programs.vscode.package}/bin/code --install-extension ${e} --force") extensions)));
 }
