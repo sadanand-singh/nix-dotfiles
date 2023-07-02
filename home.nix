@@ -21,7 +21,9 @@
     pkgs.sl
     pkgs.bat
     pkgs.comma
+    pkgs.clang
     pkgs.clang-tools
+    pkgs.cmake
     pkgs.coreutils
     pkgs.fortune
     pkgs.gcc
