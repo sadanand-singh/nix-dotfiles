@@ -41,6 +41,7 @@
   programs.zsh = {
     enable = true;
     autocd = true;
+    enableAutosuggestions = true;
     initExtra = builtins.readFile ./zshrc;
     envExtra = builtins.readFile ./zshenv;
   };

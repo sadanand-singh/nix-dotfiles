@@ -62,6 +62,5 @@ else
   . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
 fi
 
-. "$HOME/.nix-profile/share/git/contrib/completion/git-completion.zsh"
 . "$HOME/.nix-profile/share/git/contrib/completion/git-prompt.sh"
  # End Nix
