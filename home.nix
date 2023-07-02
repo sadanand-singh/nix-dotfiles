@@ -15,12 +15,12 @@
     pkgs.jq
     pkgs.libiconv
     pkgs.nixfmt
-    pkgs.nodePackages.typescript
     pkgs.ripgrep
     pkgs.shadowenv
     pkgs.tree
     pkgs.watch
     pkgs.wget
+    pkgs.neovim
   ];
 
   programs.zsh = {
