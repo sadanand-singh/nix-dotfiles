@@ -42,17 +42,16 @@ in {
       vim-cool
       auto-pairs
       nerdcommenter
-      vim-ripgrep
       vim-repeat
       vim-surround
       vim-easy-align
-      fzf
-      incsearch.vim
+      fzf-vim
+      incsearch-vim
       vim-easymotion
       nerdtree
-      vim-fugitiv
+      fugitive-gitlab-vim
       vim-signify
-      lightline.vim
+      vim-yoink
       sonokai
     ];
     extraConfig = builtins.readFile ./vimrc;

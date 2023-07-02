@@ -35,7 +35,6 @@
     pkgs.tree
     pkgs.watch
     pkgs.wget
-    pkgs.neovim
   ];
 
   programs.zsh = {
