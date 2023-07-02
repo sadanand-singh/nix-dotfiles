@@ -132,8 +132,7 @@
     VisualStudioExptTeam.vscodeintellicode
     xaver.clang-format
     yzhang.markdown-all-in-one
-  ];
-};
+    ];
+  };
 
 }
-
