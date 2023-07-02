@@ -297,9 +297,6 @@ alias update_py="conda update --all"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(zoxide init zsh --cmd cd)"
-eval "$(/usr/libexec/path_helper)"
-
 # pnpm
 export PNPM_HOME="/Users/sadanand/Library/pnpm"
 case ":$PATH:" in
