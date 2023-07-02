@@ -40,6 +40,7 @@
 
   programs.zsh = {
     enable = true;
+    autocd = true;
     initExtra = builtins.readFile ./zshrc;
     envExtra = builtins.readFile ./zshenv;
   };

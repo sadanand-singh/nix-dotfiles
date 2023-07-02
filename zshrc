@@ -287,8 +287,8 @@ function ips {
 
 alias calc="bc_convert"
 alias pl='print -rl --'
-# alias ls='lsd -l'
-# alias l='lsd -l'
+alias ls='lsd -l'
+alias l='lsd -l'
 alias la='ls -lah'
 alias lla='ls -lah'
 alias ltree='ls --tree'
