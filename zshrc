@@ -118,6 +118,57 @@ function mkcd() {
     cd $1
 }
 
+# extract files: depends on zip, unrar and p7zip
+function ex {
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar xjf $1     ;;
+        *.tar.gz)    tar xzf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xf $1      ;;
+        *.tbz2)      tar xjf $1     ;;
+        *.tgz)       tar xzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)     echo "'$1' cannot be extracted via ex()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+# find or create tmux session
+function tat {
+  name=$(basename `pwd` | sed -e 's/\.//g')
+
+  if tmux ls 2>&1 | grep "$name"; then
+    tmux attach -t "$name"
+  elif [ -f .envrc ]; then
+    direnv exec / tmux new-session -s "$name"
+  else
+    tmux new-session -s "$name"
+  fi
+}
+
+# find and edit
+function find_and_edit () {
+  if test -d .git
+  then
+    SOURCE="$(git ls-files)"
+  else
+    SOURCE="$(find . -type f)"
+  fi
+  files="$(fzf --preview='bat --color=always --paging=never --style=changes {} | head -$FZF_PREVIEW_LINES' --select-1 --multi --query="$@" <<< "$SOURCE")"
+  if [[ "$?" != "0" ]]
+  then
+    return 1
+  fi
+  vim $files
+}
+
 # Remove python compiled byte-code and mypy/pytest cache in either the current
 # directory or in a list of specified directories (including sub directories).
 function pyclean() {
