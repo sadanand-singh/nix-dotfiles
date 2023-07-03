@@ -85,6 +85,7 @@
     "prettier.printWidth" = 99;
     "prettier.singleQuote" = true;
     "terminal.integrated.fontSize" = 14;
+    "terminal.integrated.macOptionIsMeta" = true;
     "terminal.external.osxExec" = "iTerm.app";
     "markdownlint.run" = "onSave";
     "markdownlint.config" = {
