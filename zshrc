@@ -3,7 +3,7 @@
 #
 # Exports
 #
-module_path+=("$HOME/.zinit/bin/zmodules/Src"); zmodload zdharma/zplugin &>/dev/null
+module_path+=("$HOME/.zinit/bin/zmodules/Src"); zmodload zdharma-continuum/zinit &>/dev/null
 
 typeset -g HISTSIZE=290000 SAVEHIST=290000 HISTFILE=~/.zsh_history ABSD=${${(M)OSTYPE:#*(darwin|bsd)*}:+1}
 
@@ -441,7 +441,7 @@ zinit light-mode for \
 # Fast-syntax-highlighting & autosuggestions
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
-    zdharma/fast-syntax-highlighting \
+    zdharma-continuum/fast-syntax-highlighting \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
  blockf \
@@ -450,7 +450,7 @@ zinit wait lucid for \
 # lib/git.zsh is loaded mostly to stay in touch with the plugin (for the users)
 # and for the themes 2 & 3 (lambda-mod-zsh-theme & lambda-gitster)
 zinit wait lucid for \
-    zdharma/zsh-unique-id \
+    zdharma-continuum/zsh-unique-id \
     OMZ::lib/git.zsh \
  atload"unalias grv g" \
     OMZ::plugins/git/git.plugin.zsh
@@ -479,10 +479,10 @@ zinit wait"2" lucid as"program" pick"revolver" for psprint/revolver
 # Zconvey shell integration plugin
 zinit wait lucid \
  sbin"cmds/zc-bg-notify" sbin"cmds/plg-zsh-notify" for \
-    zdharma/zconvey
+    zdharma-continuum/zconvey
 
 # zsh-startify, a vim-startify like plugin
-: zinit wait"0b" lucid atload"zsh-startify" for zdharma/zsh-startify
+: zinit wait"0b" lucid atload"zsh-startify" for zdharma-continuum/zsh-startify
 zinit wait lucid pick"manydots-magic" compile"manydots-magic" for knu/zsh-manydots-magic
 
 # fzy
@@ -522,7 +522,7 @@ zinit wait lucid atload"zicompinit; zicdreplay" blockf for \
 zinit wait"1" lucid for \
     psprint/zsh-navigation-tools \
  atinit'zstyle ":history-search-multi-word" page-size "7"' \
-    zdharma/history-search-multi-word \
+    zdharma-continuum/history-search-multi-word \
  atinit"local zew_word_style=whitespace" \
     psprint/zsh-editing-workbench
 
@@ -544,10 +544,10 @@ zinit wait"2" lucid as"null" from"gh-r" for \
 
 # A few wait'2' plugins
 zinit wait"2" lucid for \
-    zdharma/declare-zsh \
-    zdharma/zflai \
+    zdharma-continuum/declare-zsh \
+    zdharma-continuum/zflai \
  blockf \
-    zdharma/zui \
+    zdharma-continuum/zui \
     zinit-zsh/zinit-console \
  atinit"forgit_ignore='fgi'" \
     wfxr/forgit
@@ -567,8 +567,8 @@ zinit as"null" wait"3" lucid for \
     sbin atload"export _MENU_THEME=legacy" \
         arzzen/git-quick-stats \
     make"PREFIX=$ZPFX"         tj/git-extras \
-    sbin"bin/git-dsf;bin/diff-so-fancy" zdharma/zsh-diff-so-fancy \
-    sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" zdharma/git-url
+    sbin"bin/git-dsf;bin/diff-so-fancy" zdharma-continuum/zsh-diff-so-fancy \
+    sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" zdharma-continuum/git-url
 
 # Notifications, configured to use zconvey
 : zinit wait lucid for marzocchi/zsh-notify
