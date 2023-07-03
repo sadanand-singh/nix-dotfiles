@@ -463,7 +463,7 @@ zinit wait"2" lucid as"null" for \
     molovo/color
 
 # revolver
-zinit wait"2" lucid as"program" pick"revolver" for psprint/revolver
+zinit wait"2" lucid as"program" pick"revolver" for molovo/revolver
 
 # On OSX, you might need to install coreutils from homebrew and use the
 # g-prefix – gsed, gdircolors
