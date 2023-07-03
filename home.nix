@@ -33,6 +33,7 @@
     pkgs.jq
     pkgs.libiconv
     pkgs.lsd
+    pkgs.nerdfonts
     pkgs.nixfmt
     pkgs.ripgrep
     pkgs.shadowenv
