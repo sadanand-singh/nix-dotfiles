@@ -487,7 +487,7 @@ zinit wait lucid for \
 
 
 zinit ice depth=1;
-zinit light romkatv/
+zinit light romkatv/powerlevel10k
 
 [[ ! -f ~/.config/home-manager/p10k.zsh ]] || source ~/.config/home-manager/p10k.zsh
 
