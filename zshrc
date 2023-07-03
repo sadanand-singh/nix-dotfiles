@@ -1,19 +1,85 @@
+# Personal Zsh configuration file. It is strongly recommended to keep all
+# shell customization and configuration (including exported environment
+# variables such as PATH) in this file or in files source by it.
+#
+# Documentation: https://github.com/romkatv/zsh4humans/blob/v5/README.md.
+
+# Periodic auto-update on Zsh startup: 'ask' or 'no'.
+# You can manually run `z4h update` to update everything.
+zstyle ':z4h:' auto-update      'ask'
+# Ask whether to auto-update this often; has no effect if auto-update is 'no'.
+zstyle ':z4h:' auto-update-days '14'
+
+# Move prompt to the bottom when zsh starts and on Ctrl+L.
+zstyle ':z4h:' prompt-at-bottom 'no'
+
+# Keyboard type: 'mac' or 'pc'.
+zstyle ':z4h:bindkey' keyboard  'mac'
+
+# Right-arrow key accepts one character ('partial-accept') from
+# command autosuggestions or the whole thing ('accept')?
+zstyle ':z4h:autosuggestions' forward-char 'accept'
+
+# Recursively traverse directories when TAB-completing files.
+zstyle ':z4h:fzf-complete' recurse-dirs 'yes'
+
+# Enable direnv to automatically source .envrc files.
+zstyle ':z4h:direnv'         enable 'yes'
+# Show "loading" and "unloading" notifications from direnv.
+zstyle ':z4h:direnv:success' notify 'yes'
+
+# The default value if none of the overrides above match the hostname.
+zstyle ':z4h:ssh:*'                   enable 'no'
+
+# Send these files over to the remote host when connecting over ssh to the
+# enabled hosts.
+zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
+
+# Clone additional Git repositories from GitHub.
+#
+# This doesn't do anything apart from cloning the repository and keeping it
+# up-to-date. Cloned files can be used after `z4h init`. This is just an
+# example. If you don't plan to use Oh My Zsh, delete this line.
+z4h install ohmyzsh/ohmyzsh || return
+z4h install supercrabtree/k || return
+z4h install esc/conda-zsh-completion || return
+z4h install lukechilds/zsh-nvm || return
+
+# Install or update core components (fzf, zsh-autosuggestions, etc.) and
+# initialize Zsh. After this point console I/O is unavailable until Zsh
+# is fully initialized. Everything that requires user interaction or can
+# perform network I/O must be done above. Everything else is best done below.
+z4h init || return
+
+# Extend PATH.
+path=(
+  $path
+)
+
+# Export environment variables.
+export GPG_TTY=$TTY
+
+# Source additional local files if they exist.
+z4h source ~/.env.zsh
+
+# Use additional Git repositories pulled in with `z4h install`.
+#
 # This is just an example that you should delete. It does nothing useful.
-# z4h load   supercrabtree/k
-# z4h load   esc/conda-zsh-completion
-# z4h load   ohmyzsh/ohmyzsh/plugins/extract
-# z4h load   ohmyzsh/ohmyzsh/plugins/macos
-# z4h load   ohmyzsh/ohmyzsh/plugins/universalarchive
-# z4h load   lukechilds/zsh-nvm
+z4h load   supercrabtree/k
+z4h load   esc/conda-zsh-completion
+z4h load   ohmyzsh/ohmyzsh/plugins/extract
+z4h load   ohmyzsh/ohmyzsh/plugins/macos
+z4h load   ohmyzsh/ohmyzsh/plugins/universalarchive
+z4h load   lukechilds/zsh-nvm
 
-# # Define key bindings.
-# z4h bindkey undo Ctrl+/  # undo the last command line change
-# z4h bindkey redo Alt+/   # redo the last undone command line change
+# Define key bindings.
+z4h bindkey undo Ctrl+/  # undo the last command line change
+z4h bindkey redo Alt+/   # redo the last undone command line change
 
-# z4h bindkey z4h-cd-back    Shift+Left   # cd into the previous directory
-# z4h bindkey z4h-cd-forward Shift+Right  # cd into the next directory
-# z4h bindkey z4h-cd-up      Shift+Up     # cd into the parent directory
-# z4h bindkey z4h-cd-down    Shift+Down   # cd into a child directory
+z4h bindkey z4h-cd-back    Shift+Left   # cd into the previous directory
+z4h bindkey z4h-cd-forward Shift+Right  # cd into the next directory
+z4h bindkey z4h-cd-up      Shift+Up     # cd into the parent directory
+z4h bindkey z4h-cd-down    Shift+Down   # cd into a child directory
 
 bindkey "^A"      beginning-of-line     "^E"      end-of-line
 bindkey "^?"      backward-delete-char  "^H"      backward-delete-char
@@ -30,8 +96,6 @@ autoload -Uz zmv
 # Define functions and completions.
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
-
-source ~/.p10k.zsh
 
 # Define aliases.
 alias tree='tree -a -I .git'
@@ -273,8 +337,6 @@ typeset -gU cdpath fpath mailpath path
 alias py3="conda activate dev"
 alias unload_py="conda deactivate"
 alias update_py="conda update --all"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # pnpm
 export PNPM_HOME="/Users/sadanand/Library/pnpm"
