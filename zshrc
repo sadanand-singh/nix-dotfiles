@@ -3,9 +3,7 @@
 #
 # Exports
 #
-#=== HELPER METHODS ===================================
-function error() { print -P "%F{160}[ERROR] ---%f%b $1" >&2 && exit 1; }
-function info() { print -P "%F{34}[INFO] ---%f%b $1"; }
+module_path+=("$HOME/.zinit/bin/zmodules/Src"); zmodload zdharma/zplugin &>/dev/null
 
 typeset -g HISTSIZE=290000 SAVEHIST=290000 HISTFILE=~/.zsh_history ABSD=${${(M)OSTYPE:#*(darwin|bsd)*}:+1}
 
@@ -422,30 +420,14 @@ zflai-msg "[zshrc] ssl tunnel PID: $!"
 
 typeset -F4 SECONDS=0
 
-#=== ZINIT ============================================
-typeset -gAH ZINIT;
-ZINIT[HOME_DIR]=$HOME/.config/zsh/zinit  ZPFX=$ZINIT[HOME_DIR]/polaris
-ZINIT[BIN_DIR]=$ZINIT[HOME_DIR]/zinit.git ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=1
-ZINIT[COMPLETIONS_DIR]=$ZINIT[HOME_DIR]/completions ZINIT[SNIPPETS_DIR]=$ZINIT[HOME_DIR]/snippets
-ZINIT[ZCOMPDUMP_PATH]=$ZINIT[HOME_DIR]/zcompdump    ZINIT[PLUGINS_DIR]=$ZINIT[HOME_DIR]/plugins
-ZI_REPO='zdharma-continuum'; GH_RAW_URL='https://raw.githubusercontent.com'
-if [[ ! -e $ZINIT[BIN_DIR] ]]; then
-  info 'Downloading Zinit' \
-    && command git clone \
-        --branch 'bugfix/system-gh-r-selection' \
-        https://github.com/$ZI_REPO/zinit \
-        $ZINIT[BIN_DIR] \
-    || error 'Unable to download zinit' \
-    && info 'Installing Zinit' \
-    && command chmod g-rwX $ZINIT[HOME_DIR] \
-    && zcompile $ZINIT[BIN_DIR]/zinit.zsh \
-    && info 'Successfully installed Zinit' \
-    || error 'Unable to install Zinit'
-fi
-source $ZINIT[BIN_DIR]/zinit.zsh \
-  && autoload -Uz _zinit \
-  && (( ${+_comps} )) \
-  && _comps[zinit]=_zinit
+[[ ! -f ~/.zinit/bin/zinit.zsh ]] && {
+    command mkdir -p ~/.zinit
+    command git clone https://github.com/zdharma-continuum/zinit ~/.zinit/bin
+}
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Zplugin annexes
 # zdharma-continuum/z-a-man \
@@ -455,6 +437,15 @@ zinit light-mode for \
     zdharma-continuum/z-a-submods \
     zdharma-continuum/z-a-bin-gem-node \
     zdharma-continuum/z-a-rust
+
+# Fast-syntax-highlighting & autosuggestions
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+ blockf \
+    zsh-users/zsh-completions
 
 # lib/git.zsh is loaded mostly to stay in touch with the plugin (for the users)
 # and for the themes 2 & 3 (lambda-mod-zsh-theme & lambda-gitster)
@@ -507,11 +498,18 @@ zinit wait lucid for \
     urbainvaes/fzf-marks
 
 
-zinit lucid for \
-    as"command" \
-    from"gh-r" \
-    atinit'export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"' atload'eval "$(starship init zsh)"' \
-    starship/starship
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
+
+autoload -U promptinit; promptinit
+
+# optionally define some options
+PURE_GIT_UNTRACKED_DIRTY=0
+
+# turn on git stash status
+zstyle :prompt:pure:git:stash show yes
+
+prompt pure
 
 # aditional plugins
 zinit ice wait lucid
