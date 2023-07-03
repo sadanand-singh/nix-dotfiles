@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }: {
   imports = [
+    ./starship.nix
     ./vscode.nix
     ./vim.nix
   ];
@@ -43,7 +44,7 @@
     enable = true;
     autocd = true;
     enableAutosuggestions = true;
-    enableCompletion = false;
+    enableCompletion = true;
     history = {
       ignoreDups = true;
       save = 1000000;
