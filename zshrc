@@ -92,6 +92,9 @@ zmodload -i zsh/complist
 autoload -Uz allopt zed zmv zcalc colors
 colors
 
+autoload -Uz compinit
+compinit
+
 autoload -Uz edit-command-line
 zle -N edit-command-line
 #bindkey -M vicmd v edit-command-line
