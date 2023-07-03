@@ -500,7 +500,16 @@ zinit wait lucid for \
 
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
+
+autoload -U promptinit; promptinit
+
+# optionally define some options
+PURE_GIT_UNTRACKED_DIRTY=0
+
+# turn on git stash status
 zstyle :prompt:pure:git:stash show yes
+
+prompt pure
 
 # aditional plugins
 zinit ice wait lucid
