@@ -28,6 +28,7 @@
     pkgs.fortune
     pkgs.gnused
     pkgs.gron
+    pkgs.hackgen-nf-font
     pkgs.htop
     pkgs.jq
     pkgs.libiconv

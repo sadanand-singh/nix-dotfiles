@@ -89,6 +89,8 @@ zmodload -i zsh/complist
 # Autoloads
 #
 
+zinit ice silent wait!1 atload"ZINIT[COMPINIT_OPTS]=-C; zpcompinit"
+
 autoload -Uz allopt zed zmv zcalc colors
 colors
 
@@ -107,10 +109,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 #
 # Aliases
 #
-
-# Define functions and completions.
-function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
-compdef _directories md
 
 # Define aliases.
 alias tree='tree -a -I .git'
@@ -252,19 +250,6 @@ bindkey -M vicmd '\e\e' sudo-command-line
 function bc_convert {
   echo "$@" | bc
 }
-
-function gi() { curl -fLw '\n' https://www.gitignore.io/api/"${(j:,:)@}" }
-
-_gitignoreio_get_command_list() {
-  curl -sfL https://www.gitignore.io/api/list | tr "," "\n"
-}
-
-_gitignoreio () {
-  compset -P '*,'
-  compadd -S '' `_gitignoreio_get_command_list`
-}
-
-compdef _gitignoreio gi
 
 # Median function
 # Probably best to keep with Odd numbers
@@ -646,3 +631,21 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# compdef based functions
+
+function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
+compdef _directories md
+
+function gi() { curl -fLw '\n' https://www.gitignore.io/api/"${(j:,:)@}" }
+
+_gitignoreio_get_command_list() {
+  curl -sfL https://www.gitignore.io/api/list | tr "," "\n"
+}
+
+_gitignoreio () {
+  compset -P '*,'
+  compadd -S '' `_gitignoreio_get_command_list`
+}
+
+compdef _gitignoreio gi
