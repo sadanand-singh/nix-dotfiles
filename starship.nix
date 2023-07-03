@@ -21,6 +21,7 @@ let
     "git_status"
     "line_break"
     "nix_shell"
+    "conda"
     "rust"
     "scala"
     "java"
@@ -45,18 +46,6 @@ in
     settings = mergeAllAttrSets [
       enabledModules
       disabledModules
-      {
-        format = promptFormat;
-        directory = {
-          format  = "\\[[  $path](bold fg:39)\\]";
-          truncation_length = 4;
-          truncation_symbol = "…/";
-        };
-        git_branch = {
-          format = "\\[[$symbol$branch](bold fg:40)\\]";
-          truncation_length = 30;
-        };
-      }
     ];
   };
 }
