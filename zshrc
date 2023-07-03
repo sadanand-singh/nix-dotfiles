@@ -498,18 +498,11 @@ zinit wait lucid for \
     urbainvaes/fzf-marks
 
 
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
-
-autoload -U promptinit; promptinit
-
-# optionally define some options
-PURE_GIT_UNTRACKED_DIRTY=0
-
-# turn on git stash status
-zstyle :prompt:pure:git:stash show yes
-
-prompt pure
+zinit lucid for \
+    as"command" \
+    from"gh-r" \
+    atinit'export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"' atload'eval "$(starship init zsh)"' \
+    starship/starship
 
 # aditional plugins
 zinit ice wait lucid
