@@ -3,7 +3,7 @@
 #
 # Exports
 #
-module_path+=("$HOME/.zinit/bin/zmodules/Src"); zmodload zdharma-continuum/zinit &>/dev/null
+module_path+=("$HOME/.zinit/bin/zmodules/Src"); zmodload zdharma/zplugin &>/dev/null
 
 typeset -g HISTSIZE=290000 SAVEHIST=290000 HISTFILE=~/.zsh_history ABSD=${${(M)OSTYPE:#*(darwin|bsd)*}:+1}
 
@@ -430,13 +430,13 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Zplugin annexes
-# zinit-zsh/z-a-man \
+# zdharma-continuum/z-a-man \
 zinit light-mode for \
-    zinit-zsh/z-a-test \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-submods \
-    zinit-zsh/z-a-bin-gem-node \
-    zinit-zsh/z-a-rust
+    zdharma-continuum/z-a-test \
+    zdharma-continuum/z-a-patch-dl \
+    zdharma-continuum/z-a-submods \
+    zdharma-continuum/z-a-bin-gem-node \
+    zdharma-continuum/z-a-rust
 
 # Fast-syntax-highlighting & autosuggestions
 zinit wait lucid for \
@@ -548,7 +548,7 @@ zinit wait"2" lucid for \
     zdharma-continuum/zflai \
  blockf \
     zdharma-continuum/zui \
-    zinit-zsh/zinit-console \
+    zdharma-continuum/zinit-console \
  atinit"forgit_ignore='fgi'" \
     wfxr/forgit
 
