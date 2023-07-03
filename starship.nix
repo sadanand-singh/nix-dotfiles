@@ -10,8 +10,6 @@ let
     foldl' (recursiveUpdate) {} attrsSets;
   disableModules = isDisabled: modules:
     mergeAllAttrSets (map (mod: { "${mod}".disabled = isDisabled; }) modules);
-
-  starshipPackage = pkgs.unstable.starship;
   promptOrder = [
     "directory"
     "git_branch"
@@ -39,7 +37,6 @@ let
 in
 {
   programs.starship = {
-    package = starshipPackage;
     enable = true;
     enableZshIntegration = true;
     settings = mergeAllAttrSets [
