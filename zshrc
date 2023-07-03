@@ -486,11 +486,8 @@ zinit wait lucid for \
     urbainvaes/fzf-marks
 
 
-zinit lucid for \
-    as"command" \
-    from"gh-r" \
-    atinit'export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"' atload'eval "$(starship init zsh)"' \
-    starship/starship
+zinit ice depth=1;
+zinit light romkatv/powerlevel10k
 
 # aditional plugins
 zinit ice wait lucid
