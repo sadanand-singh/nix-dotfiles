@@ -35,7 +35,6 @@
     pkgs.nixfmt
     pkgs.ripgrep
     pkgs.shadowenv
-    pkgs.starship
     pkgs.tree
     pkgs.watch
     pkgs.wget
