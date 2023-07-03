@@ -89,8 +89,6 @@ zmodload -i zsh/complist
 # Autoloads
 #
 
-zinit ice silent wait!1 atload"ZINIT[COMPINIT_OPTS]=-C; zpcompinit"
-
 autoload -Uz allopt zed zmv zcalc colors
 colors
 
@@ -413,6 +411,8 @@ typeset -F4 SECONDS=0
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit ice silent wait!1 atload"ZINIT[COMPINIT_OPTS]=-C; zpcompinit"
 
 # Zplugin annexes
 # zdharma-continuum/z-a-man \
