@@ -485,11 +485,15 @@ zinit wait lucid for \
     hlissner/zsh-autopair \
     urbainvaes/fzf-marks
 
+export NVM_COMPLETION=true
+export NVM_SYMLINK_CURRENT="true"
+zinit wait lucid light-mode for lukechilds/zsh-nvm
 
-zinit ice depth=1;
-zinit light romkatv/powerlevel10k
-
-[[ ! -f ~/.config/home-manager/p10k.zsh ]] || source ~/.config/home-manager/p10k.zsh
+zinit lucid for \
+    as"command" \
+    from"gh-r" \
+    atinit'export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"' atload'eval "$(starship init zsh)"' \
+    starship/starship
 
 # aditional plugins
 zinit ice wait lucid
