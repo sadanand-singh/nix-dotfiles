@@ -489,11 +489,7 @@ export NVM_COMPLETION=true
 export NVM_SYMLINK_CURRENT="true"
 zinit wait lucid light-mode for lukechilds/zsh-nvm
 
-zinit lucid for \
-    as"command" \
-    from"gh-r" \
-    atinit'export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"' atload'eval "$(starship init zsh)"' \
-    starship/starship
+zinit light spaceship-prompt/spaceship-prompt
 
 # aditional plugins
 zinit ice wait lucid
