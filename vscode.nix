@@ -86,7 +86,7 @@
     "prettier.singleQuote" = true;
     "terminal.integrated.fontSize" = 14;
     "terminal.integrated.macOptionIsMeta" = true;
-    "terminal.external.osxExec" = "iTerm.app";
+    "terminal.external.osxExec" = "Warp.app";
     "markdownlint.run" = "onSave";
     "markdownlint.config" = {
         "default" = true;
