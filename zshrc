@@ -373,7 +373,7 @@ function ips {
     echo "External: $(ip)"
 }
 
-function update {
+function update() (
     echo "update brew, zsh, zinit and mac app store"
     echo 'start updating ...'
     cd ~/.config/home-manager
@@ -389,7 +389,7 @@ function update {
 
     echo 'checking Apple Updates'
     /usr/sbin/softwareupdate -ia
-}
+)
 
 function from-where {
     echo $^fpath/$_comps[$1](N)
