@@ -491,7 +491,9 @@ export NVM_COMPLETION=true
 export NVM_SYMLINK_CURRENT="true"
 zinit wait lucid light-mode for lukechilds/zsh-nvm
 
-zinit light spaceship-prompt/spaceship-prompt
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
+zstyle :prompt:pure:git:stash show yes
 
 # aditional plugins
 zinit ice wait lucid
