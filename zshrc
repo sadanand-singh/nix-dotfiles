@@ -45,6 +45,8 @@ zle -N down-line-or-beginning-search
 
 bindkey -e
 
+typeset -g -A key
+
 key[Home]=${terminfo[khome]}
 key[End]=${terminfo[kend]}
 key[Insert]=${terminfo[kich1]}
