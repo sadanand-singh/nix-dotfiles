@@ -391,6 +391,8 @@ function update {
 
     echo 'checking Apple Updates'
     /usr/sbin/softwareupdate -ia
+
+    exec zsh
 }
 
 function from-where {
