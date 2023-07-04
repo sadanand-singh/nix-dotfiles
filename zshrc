@@ -1,4 +1,15 @@
-# Created by newuser for 5.7.1
+### Added by Zinit's installer
+[[ ! -f ~/.zinit/bin/zinit.zsh ]] && {
+    command mkdir -p ~/.zinit
+    command git clone https://github.com/zdharma-continuum/zinit ~/.zinit/bin
+}
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit ice silent wait!1 atload"ZINIT[COMPINIT_OPTS]=-C; zpcompinit"
+### End of Zinit installer's chunk
 
 #
 # Exports
@@ -418,17 +429,6 @@ zflai-msg "[zshrc] ssl tunnel PID: $!"
 
 typeset -F4 SECONDS=0
 
-[[ ! -f ~/.zinit/bin/zinit.zsh ]] && {
-    command mkdir -p ~/.zinit
-    command git clone https://github.com/zdharma-continuum/zinit ~/.zinit/bin
-}
-
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-zinit ice silent wait!1 atload"ZINIT[COMPINIT_OPTS]=-C; zpcompinit"
-
 # Zplugin annexes
 # zdharma-continuum/z-a-man \
 zinit light-mode for \
@@ -501,8 +501,9 @@ export NVM_COMPLETION=true
 export NVM_SYMLINK_CURRENT="true"
 zinit wait lucid light-mode for lukechilds/zsh-nvm
 
-zinit light spaceship-prompt/spaceship-prompt
-SPACESHIP_PROMPT_ASYNC=FALSE
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
+zstyle :prompt:pure:git:stash show yes
 
 # aditional plugins
 zinit ice wait lucid
