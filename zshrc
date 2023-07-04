@@ -373,15 +373,17 @@ function ips {
     echo "External: $(ip)"
 }
 
-function update() (
-    echo "update brew, zsh, zinit and mac app store"
+function update {
+    echo "update nix, zinit and mac app store"
     echo 'start updating ...'
-    cd ~/.config/home-manager
-    nix flake update
-    git add .
-    git commit -a -m 'auto commit for update on $(date +%d.%m.%y-%H:%M:%S)'
-    git push origin main
-    home-manager switch -b bak
+    (
+        cd ~/.config/home-manager &&
+        nix flake update &&
+        git add . &&
+        git commit -a -m "auto commit for update on $(date +%d.%m.%y-%H:%M:%S)" &&
+        git push origin main &&
+        home-manager switch -b bak
+    )
 
     echo 'updating zsh shell'
     zinit self-update
@@ -389,7 +391,7 @@ function update() (
 
     echo 'checking Apple Updates'
     /usr/sbin/softwareupdate -ia
-)
+}
 
 function from-where {
     echo $^fpath/$_comps[$1](N)
