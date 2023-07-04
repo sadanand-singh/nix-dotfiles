@@ -376,6 +376,9 @@ function ips {
 function update {
     echo "update brew, zsh, zinit and mac app store"
     echo 'start updating ...'
+    cd ~/.config/home-manager
+    nix flake update
+    home-manager switch -b bak
 
     echo 'updating zsh shell'
     zinit self-update
