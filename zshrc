@@ -376,7 +376,7 @@ function ips {
 function update {
     echo "update nix, zinit and mac app store"
     echo 'start updating ...'
-    (
+    $(
         cd ~/.config/home-manager &&
         nix flake update &&
         git add . &&
