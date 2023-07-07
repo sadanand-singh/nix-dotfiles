@@ -259,7 +259,8 @@
     "remote.SSH.showLoginTerminal" = true;
     "black-formatter.args" = ["-S" "-l 99"];
     "C_Cpp.clang_format_fallbackStyle" = "LLVM";
-    "python.defaultInterpreterPath" = "/Volumes/Development/anaconda3/anaconda3/envs/dev/bin/python";
+    "python.defaultInterpreterPath" = "/Users/sadanand/.anaconda3/envs/dev/bin/python";
+    "update.mode"= "none";
     };
   };
 
