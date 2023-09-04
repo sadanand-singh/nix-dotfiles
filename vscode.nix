@@ -4,6 +4,7 @@
   extensions = [
     "astro-build.astro-vscode"
     "bbenoist.Nix"
+    "Continue.continue"
     "DavidAnson.vscode-markdownlint"
     "eamodio.gitlens"
     "esbenp.prettier-vscode"
