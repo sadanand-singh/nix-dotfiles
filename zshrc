@@ -625,6 +625,8 @@ alias py3="conda activate dev"
 alias unload_py="conda deactivate"
 alias update_py="conda update --all"
 
+source /Users/sadanand/.iterm2_shell_integration.zsh
+
 # pnpm
 export PNPM_HOME="/Users/sadanand/Library/pnpm"
 case ":$PATH:" in
