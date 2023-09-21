@@ -14,7 +14,7 @@
   };
   home.username = "sadanand"; # REPLACE ME
   home.homeDirectory = "/Users/sadanand"; # REPLACE ME
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 
   home.packages = [

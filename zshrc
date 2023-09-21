@@ -392,7 +392,7 @@ function update {
         nix flake update &&
         git add . &&
         git commit -a -m "auto commit for update on $(date +%d.%m.%y-%H:%M:%S)" &&
-        git push origin main
+        git push origin main &&
     )
     home-manager switch -b bak
 
