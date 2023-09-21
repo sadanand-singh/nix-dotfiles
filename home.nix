@@ -20,6 +20,7 @@
   home.packages = [
     pkgs.sl
     pkgs.bat
+    pkgs.cargo
     pkgs.comma
     pkgs.clang
     pkgs.clang-tools
@@ -36,6 +37,7 @@
     pkgs.nerdfonts
     pkgs.nixfmt
     pkgs.ripgrep
+    pkgs.rustc
     pkgs.shadowenv
     pkgs.tree
     pkgs.watch
