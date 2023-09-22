@@ -260,7 +260,8 @@
     "black-formatter.args" = ["-S" "-l 99"];
     "C_Cpp.clang_format_fallbackStyle" = "LLVM";
     "python.defaultInterpreterPath" = "/Users/sadanand/.anaconda3/envs/dev/bin/python";
-    "update.mode"= "none";
+    "update.mode" = "none";
+    "remote.SSH.remoteServerListenOnSocket" = true;
     };
   };
 
