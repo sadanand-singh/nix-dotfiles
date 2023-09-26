@@ -132,6 +132,8 @@ alias vim=nvim
 alias norg="gron --ungron"
 alias ungron="gron --ungron"
 
+alias vpn-cmd="sudo openfortivpn -c $HOME/.config/fort.conf"
+
 function mkcd() {
     mkdir -p $1
     cd $1
