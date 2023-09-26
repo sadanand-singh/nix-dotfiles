@@ -1,6 +1,5 @@
 { config, lib, pkgs, ... }: {
   imports = [
-    ./openfortivpn.nix
     ./vscode.nix
     ./vim.nix
   ];
@@ -35,6 +34,7 @@
     pkgs.jq
     pkgs.libiconv
     pkgs.lsd
+    pkgs.openfortivpn
     pkgs.nerdfonts
     pkgs.nixfmt
     pkgs.ripgrep
