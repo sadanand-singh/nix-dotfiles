@@ -635,8 +635,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-conda activate dev
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/sadanand/.anaconda3/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
