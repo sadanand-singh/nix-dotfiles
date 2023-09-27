@@ -174,6 +174,9 @@
         "10.225.94.55" = "linux";
         "aryabhatta.local" = "linux";
         "qbna_dev2" = "linux";
+        "dev2" = "linux";
+        "qbna_ops" = "linux";
+        "qbna_research_p2" = "linux";
     };
     "prettier.jsxSingleQuote" = true;
     "editor.suggestSelection" = "first";
