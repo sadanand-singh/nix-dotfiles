@@ -68,11 +68,6 @@
     "editor.wordWrap" = "on";
     "editor.multiCursorModifier" = "ctrlCmd";
     "editor.snippetSuggestions" = "top";
-    "python.linting.flake8Args" = [
-        "--max-line-length=99"
-        "--ignore=E203;W503"
-        "--exclude=.git;__pycache__;.direnv;node_modules"
-    ];
     "cSpell.allowCompoundWords" = true;
     "cSpell.userWords" = [
         "zotero"
@@ -92,7 +87,6 @@
         "no-emphasis-as-header" = false;
     };
     "editor.minimap.enabled" = true;
-    "python.linting.enabled" = true;
     "python.testing.pytestEnabled" = true;
     "breadcrumbs.enabled" = true;
     "files.hotExit" = "off";
