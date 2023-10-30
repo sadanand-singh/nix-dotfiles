@@ -177,6 +177,7 @@
         "dev2" = "linux";
         "qbna_ops" = "linux";
         "qbna_research_p2" = "linux";
+        "qbna_research_p3" = "linux";
     };
     "prettier.jsxSingleQuote" = true;
     "editor.suggestSelection" = "first";
