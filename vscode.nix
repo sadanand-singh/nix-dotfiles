@@ -186,6 +186,7 @@
     "workbench.startupEditor" = "none";
     "git.autofetch" = true;
     "workbench.editor.untitled.hint" = "hidden";
+    "workbench.editor.empty.hint" = "hidden";
     "workbench.productIconTheme" = "fluent-icons";
     "notebook.cellToolbarLocation" = {
         "default" = "right";
