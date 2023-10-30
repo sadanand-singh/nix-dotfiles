@@ -68,15 +68,11 @@
     "editor.wordWrap" = "on";
     "editor.multiCursorModifier" = "ctrlCmd";
     "editor.snippetSuggestions" = "top";
-    "python.formatting.blackArgs" = ["--line-length" "99" "-S"];
     "python.linting.flake8Args" = [
         "--max-line-length=99"
         "--ignore=E203;W503"
         "--exclude=.git;__pycache__;.direnv;node_modules"
     ];
-    "python.linting.pylintEnabled" = false;
-    "python.linting.flake8Enabled" = true;
-    "python.formatting.provider" = "black";
     "cSpell.allowCompoundWords" = true;
     "cSpell.userWords" = [
         "zotero"
