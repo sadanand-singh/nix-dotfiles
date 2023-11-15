@@ -1,6 +1,5 @@
 { config, lib, pkgs, ... }: {
   imports = [
-    ./vscode.nix
     ./vim.nix
   ];
   nixpkgs = {
