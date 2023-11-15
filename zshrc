@@ -618,7 +618,7 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   $path,
-  /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code
+  /Applications/Visual Studio Code.app/Contents/Resources/app/bin
 )
 
 export PATH
