@@ -90,7 +90,6 @@
     "python.testing.pytestEnabled" = true;
     "breadcrumbs.enabled" = true;
     "files.hotExit" = "off";
-    "workbench.editor.restoreViewState" = false;
     "explorer.confirmDelete" = false;
     "workbench.iconTheme" = "Monokai Pro Icons";
     "cSpell.enabledLanguageIds" = [
