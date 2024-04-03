@@ -44,6 +44,15 @@
     pkgs.wget
   ];
 
+  programs.tmux = {
+    enable = true;
+    shell = "/usr/local/bin/fish";
+    terminal = "tmux-256color";
+    historyLimit = 100000;
+    extraConfig = ''
+    '';
+  };
+
   programs.git = {
     enable = true;
     userName = "Sadanand Singh";
