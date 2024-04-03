@@ -44,13 +44,6 @@
     pkgs.wget
   ];
 
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set fish_greeting # Disable greeting
-    '';
-  };
-
   programs.git = {
     enable = true;
     userName = "Sadanand Singh";
