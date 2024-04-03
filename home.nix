@@ -44,14 +44,11 @@
     pkgs.wget
   ];
 
-  programs.zsh = {
+  programs.fish = {
     enable = true;
-    autocd = false;
-    enableAutosuggestions = false;
-    enableCompletion = false;
-    initExtra = builtins.readFile ./zshrc;
-    envExtra = builtins.readFile ./zshenv;
-    profileExtra = builtins.readFile ./profile;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
   };
 
   programs.git = {
@@ -93,17 +90,6 @@
     enableBashIntegration = true;
     defaultCommand = "rg --files --hidden --follow";
     defaultOptions = [ "-m --bind ctrl-a:select-all,ctrl-d:deselect-all" ];
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
 }
